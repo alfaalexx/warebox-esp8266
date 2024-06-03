@@ -15,9 +15,9 @@ const char* ssid = "gratiss"; // Your Wifi SSID
 const char* password = "helloworld"; // Wifi Password
 String server_addr = "192.168.43.152:8080"; // your server address or computer IP
 
-byte readCard[4];
-uint8_t successRead;
 String UIDCard;
+unsigned long relayOnTime = 0; // Store the time when relay was turned on
+bool relayActive = false; // Flag to indicate if relay is active
 
 void setup() {
   pinMode(RELAY_PIN, OUTPUT);
@@ -33,46 +33,48 @@ void setup() {
 }
 
 void loop() {
-  successRead = getID();
+  unsigned long currentMillis = millis();
+
+  if (relayActive && (currentMillis - relayOnTime >= 5000)) { // Check if 5 seconds have passed
+    digitalWrite(RELAY_PIN, LOW); // Turn off relay
+    relayActive = false; // Reset relay flag
+    Serial.println("Relay turned off.");
+    mfrc522.PCD_Init(); // Reinitialize the RFID reader after relay is turned off
+  } else if (!relayActive) { // Only read card if relay is not active
+    if (mfrc522.PICC_IsNewCardPresent() && mfrc522.PICC_ReadCardSerial()) {
+      UIDCard = "";
+      for (uint8_t i = 0; i < mfrc522.uid.size; i++) {
+        UIDCard += String(mfrc522.uid.uidByte[i], HEX);
+      }
+      UIDCard.toUpperCase(); // Capitalize
+      Serial.print("UID:");
+      Serial.println(UIDCard);
+      Serial.println(F("**End Reading**"));
+
+      beepBuzzer(); // Beep to indicate successful read
+
+      storeData(); // store data to DB
+
+      mfrc522.PICC_HaltA(); // Stop reading
+      relayOnTime = millis(); // Record the time when relay is turned on
+      relayActive = true; // Set relay active flag
+    }
+  }
 }
 
-uint8_t getID() {
-  // Getting ready for Reading PICCs
-  if (!mfrc522.PICC_IsNewCardPresent()) {
-    return 0;
+void beepBuzzer() {
+  for (int i = 0; i < 2; i++) {
+    digitalWrite(buzzer, HIGH);
+    delay(200);
+    digitalWrite(buzzer, LOW);
+    delay(200);
   }
-  if (!mfrc522.PICC_ReadCardSerial()) {
-    return 0;
-  }
-  UIDCard = "";
-  Serial.println(F("Scanned PICC's UID:"));
-
-  for (uint8_t i = 0; i < mfrc522.uid.size; i++) {
-    UIDCard += String(mfrc522.uid.uidByte[i], HEX);
-  }
-  UIDCard.toUpperCase(); // Capital
-  Serial.print("UID:");
-  Serial.println(UIDCard);
-  Serial.println(F("**End Reading**"));
-  digitalWrite(buzzer, HIGH); delay(200);
-  digitalWrite(buzzer, LOW); delay(200);
-  digitalWrite(buzzer, HIGH); delay(200);
-  digitalWrite(buzzer, LOW);
-
-  storeData(); // store data to DB
-  delay(2000);
-
-  mfrc522.PICC_HaltA(); // Stop reading
-  return 1;
 }
 
 void storeData() {
   ConnectWIFI(); // check wifi connection
   WiFiClient client;
-  String address;
-
-  // equate with your Server address (computer's IP address) and your directory application
-  address = "http://" + server_addr + "/warebox/webapi/api/create.php?uid=" + UIDCard;
+  String address = "http://" + server_addr + "/warebox/webapi/api/create.php?uid=" + UIDCard;
 
   HTTPClient http;
   http.begin(client, address);
@@ -120,19 +122,15 @@ void storeData() {
     Serial.println(uid_res);
     Serial.println(status_res);
   } else {
+    digitalWrite(RELAY_PIN, HIGH); // Turn on the relay
     if (status_res == "IN") {
-      digitalWrite(RELAY_PIN, HIGH);
-      delay(5000);
       Serial.println("Welcome!");
     } else {
-      digitalWrite(RELAY_PIN, HIGH);
-      delay(5000);
       Serial.println("See you!");
     }
     Serial.println(first_name);
     Serial.println(waktu_res);
   }
-  digitalWrite(RELAY_PIN, LOW);
 }
 
 void ConnectWIFI() {
