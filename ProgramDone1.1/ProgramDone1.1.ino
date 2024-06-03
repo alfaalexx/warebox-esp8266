@@ -7,6 +7,7 @@
 // inisialisasi pin untuk RFID
 #define RST_PIN 22
 #define SS_PIN 21
+#define RELAY_PIN 27
 byte buzzer = 2; // pin GPIO2
 MFRC522 mfrc522(SS_PIN, RST_PIN); // Create MFRC522 instance
 
@@ -19,7 +20,9 @@ uint8_t successRead;
 String UIDCard;
 
 void setup() {
+  pinMode(RELAY_PIN, OUTPUT);
   pinMode(buzzer, OUTPUT);
+  digitalWrite(RELAY_PIN, LOW);
   Serial.begin(115200); // Initialize serial communications with the PC
   SPI.begin(); // Init SPI bus
   mfrc522.PCD_Init(); // Init MFRC522 card
@@ -118,13 +121,18 @@ void storeData() {
     Serial.println(status_res);
   } else {
     if (status_res == "IN") {
+      digitalWrite(RELAY_PIN, HIGH);
+      delay(5000);
       Serial.println("Welcome!");
     } else {
+      digitalWrite(RELAY_PIN, HIGH);
+      delay(5000);
       Serial.println("See you!");
     }
     Serial.println(first_name);
     Serial.println(waktu_res);
   }
+  digitalWrite(RELAY_PIN, LOW);
 }
 
 void ConnectWIFI() {
