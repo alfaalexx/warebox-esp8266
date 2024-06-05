@@ -3,17 +3,27 @@
 #include <SPI.h>
 #include <MFRC522.h>
 #include <ArduinoJson.h>
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+#include "icon.h"
 
-// inisialisasi pin untuk RFID
+// Initialize pins for RFID
 #define RST_PIN 22
 #define SS_PIN 21
 #define RELAY_PIN 27
 byte buzzer = 2; // pin GPIO2
 MFRC522 mfrc522(SS_PIN, RST_PIN); // Create MFRC522 instance
 
-const char* ssid = "gratiss"; // Your Wifi SSID
-const char* password = "helloworld"; // Wifi Password
-String server_addr = "192.168.43.152:8080"; // your server address or computer IP
+// Initialize OLED
+#define OLED_SDA 5
+#define OLED_SCL 4
+#define OLED_ADDR 0x3C
+Adafruit_SSD1306 display(128, 64, &Wire, -1);
+
+const char* ssid = "ZTE_2.4G_77GCk6"; // Your Wifi SSID
+const char* password = "CdhKgzFp"; // Wifi Password
+String server_addr = "192.168.1.6:8080"; // your server address or computer IP
 
 String UIDCard;
 unsigned long relayOnTime = 0; // Store the time when relay was turned on
@@ -28,12 +38,28 @@ void setup() {
   mfrc522.PCD_Init(); // Init MFRC522 card
   Serial.println(F("Read Uid data on a MIFARE PICC:")); // shows in serial that it is ready to read
   ShowReaderDetails(); // Show details of PCD - MFRC522 Card Reader details
-  
+
+  // Initialize I2C communication with specified pins
+  Wire.begin(OLED_SDA, OLED_SCL);
+
+  display.begin(SSD1306_SWITCHCAPVCC, OLED_ADDR);
+  display.clearDisplay();
+  display.setTextColor(WHITE);
+  display.setTextSize(1);
+  display.setCursor(38, 20); display.println(F("WareBox"));
+  display.setCursor(35, 35); display.println(F("Locker Digital"));
+  display.display();
+  delay(1000);
   ConnectWIFI();
 }
 
 void loop() {
   unsigned long currentMillis = millis();
+  display.clearDisplay();
+  display.drawBitmap(32, 0, cardBitmap, 68, 50, WHITE);
+  display.setTextSize(1);
+  display.setCursor(30, 55); display.print("Tap Your Card!");
+  display.display();
 
   if (relayActive && (currentMillis - relayOnTime >= 5000)) { // Check if 5 seconds have passed
     digitalWrite(RELAY_PIN, LOW); // Turn off relay
@@ -72,7 +98,10 @@ void beepBuzzer() {
 }
 
 void storeData() {
-  ConnectWIFI(); // check wifi connection
+  if (WiFi.status() != WL_CONNECTED) {
+    ConnectWIFI(); // Reconnect if WiFi is not connected
+  }
+
   WiFiClient client;
   String address = "http://" + server_addr + "/warebox/webapi/api/create.php?uid=" + UIDCard;
 
@@ -116,43 +145,69 @@ void storeData() {
     }
   }
 
-  // Print Data to Serial Monitor
+  display.clearDisplay();
+  display.drawBitmap(0, 5, userBitmap, 50, 60, WHITE);
+  display.setTextColor(WHITE);
+  display.setTextSize(1);
+
+  // Print Data
   if (status_res == "INVALID") {
-    Serial.println("Who are you?");
-    Serial.println(uid_res);
-    Serial.println(status_res);
+    display.setCursor(52, 15); display.print("Who are you?");
+    display.setCursor(52, 30); display.print(uid_res);
+    display.setCursor(52, 40); display.print(status_res);
   } else {
-    digitalWrite(RELAY_PIN, HIGH); // Turn on the relay
     if (status_res == "IN") {
-      Serial.println("Welcome!");
+      display.setCursor(52, 15); display.print("Welcome!");
+      digitalWrite(RELAY_PIN, HIGH);
+      delay(1000);
     } else {
-      Serial.println("See you!");
+      display.setCursor(52, 15); display.print("See you!");
+      digitalWrite(RELAY_PIN, HIGH);
+      delay(1000);
     }
-    Serial.println(first_name);
-    Serial.println(waktu_res);
+    display.setCursor(52, 30); display.print(first_name);
+    display.setCursor(52, 40); display.print(waktu_res);
   }
+  display.display();
+  delay(3000);
+
+  digitalWrite(RELAY_PIN, LOW);
 }
 
 void ConnectWIFI() {
-  if (WiFi.status() != WL_CONNECTED) {
-    Serial.print("Attempting to connect to SSID: ");
-    Serial.println(ssid);
-    WiFi.begin(ssid, password);
-    int i = 0;
-    while (WiFi.status() != WL_CONNECTED) {
-      Serial.print(".");
-      delay(1000);
-      ++i;
-      if (i == 30) {
-        i = 0;
-        Serial.println("\n Failed to Connect.");
-        break;
-      }
+  Serial.print("Attempting to connect to SSID: ");
+  Serial.println(ssid);
+  WiFi.begin(ssid, password);
+  int i = 0;
+  int a = 0;
+  while (WiFi.status() != WL_CONNECTED) {
+    Serial.print(".");
+    display.clearDisplay();
+    display.setTextSize(1);
+    if (a == 0) {
+      display.drawBitmap(52, 20, wifi_icon, 16, 16, WHITE);
+      a = 1;
+    } else {
+      display.drawBitmap(52, 20, wifi_icon, 16, 16, BLACK);
+      a = 0;
     }
-    if (WiFi.status() == WL_CONNECTED) {
-      Serial.println("\n Connected!");
+    display.setCursor(25, 50); display.print("Connecting ...");
+    display.display();
+    delay(1000);
+    ++i;
+    if (i == 30) {
+      i = 0;
+      Serial.println("\nFailed to Connect.");
+      break;
     }
   }
+  Serial.println("\nConnected!");
+  display.clearDisplay();
+  display.setTextSize(1);
+  display.drawBitmap(52, 20, wifi_icon, 16, 16, WHITE);
+  display.setCursor(33, 50); display.print("Connected!");
+  display.display();
+  delay(2000);
 }
 
 void ShowReaderDetails() {
