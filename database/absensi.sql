@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 04, 2024 at 11:05 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 7.4.33
+-- Generation Time: Jun 11, 2024 at 09:07 AM
+-- Server version: 10.4.16-MariaDB
+-- PHP Version: 7.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,7 +33,7 @@ CREATE TABLE `data_absen` (
   `waktu` time NOT NULL DEFAULT current_timestamp(),
   `uid` varchar(20) NOT NULL,
   `status` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `data_absen`
@@ -198,7 +198,8 @@ INSERT INTO `data_absen` (`id`, `tanggal`, `waktu`, `uid`, `status`) VALUES
 (156, '2024-06-04', '12:56:44', '535380F6', 'OUT'),
 (157, '2024-06-04', '12:56:51', '535380F6', 'IN'),
 (158, '2024-06-04', '12:57:01', '535380F6', 'OUT'),
-(159, '2024-06-04', '14:07:39', '535380F6', 'IN');
+(159, '2024-06-04', '14:07:39', '535380F6', 'IN'),
+(160, '2024-06-10', '14:59:52', '70772113', 'IN');
 
 -- --------------------------------------------------------
 
@@ -212,7 +213,7 @@ CREATE TABLE `data_invalid` (
   `waktu` time NOT NULL DEFAULT current_timestamp(),
   `uid` varchar(10) NOT NULL,
   `status` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `data_invalid`
@@ -239,10 +240,6 @@ INSERT INTO `data_invalid` (`id`, `tanggal`, `waktu`, `uid`, `status`) VALUES
 (31, '2024-05-31', '15:10:13', '831DEA11', 'INVALID'),
 (32, '2024-05-31', '15:10:17', '831DEA11', 'INVALID'),
 (33, '2024-05-31', '15:10:20', '831DEA11', 'INVALID'),
-(34, '2024-05-31', '15:10:24', '70772113', 'INVALID'),
-(35, '2024-05-31', '15:10:27', '70772113', 'INVALID'),
-(36, '2024-05-31', '15:10:30', '70772113', 'INVALID'),
-(37, '2024-05-31', '15:10:33', '70772113', 'INVALID'),
 (38, '2024-05-31', '15:14:58', '831DEA11', 'INVALID'),
 (39, '2024-05-31', '15:15:20', '831DEA11', 'INVALID'),
 (40, '2024-05-31', '15:17:08', '831DEA11', 'INVALID'),
@@ -266,7 +263,9 @@ INSERT INTO `data_invalid` (`id`, `tanggal`, `waktu`, `uid`, `status`) VALUES
 (58, '2024-06-03', '14:32:35', '831DEA11', 'INVALID'),
 (59, '2024-06-04', '12:48:52', '831DEA11', 'INVALID'),
 (60, '2024-06-04', '12:50:57', '831DEA11', 'INVALID'),
-(61, '2024-06-04', '12:56:23', '831DEA11', 'INVALID');
+(61, '2024-06-04', '12:56:23', '831DEA11', 'INVALID'),
+(63, '2024-06-10', '14:59:40', 'B3B0E5C', 'INVALID'),
+(64, '2024-06-10', '15:02:43', 'B3B0E5C', 'INVALID');
 
 -- --------------------------------------------------------
 
@@ -282,19 +281,23 @@ CREATE TABLE `data_karyawan` (
   `division` varchar(50) NOT NULL,
   `mail` varchar(50) NOT NULL,
   `alamat` text NOT NULL,
-  `picture` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `picture` varchar(100) NOT NULL,
+  `saldo` int(11) NOT NULL DEFAULT 0,
+  `password` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `data_karyawan`
 --
 
-INSERT INTO `data_karyawan` (`id`, `created`, `uid`, `nama`, `division`, `mail`, `alamat`, `picture`) VALUES
-(6, '2023-03-10', 'EABF484', 'Muhamad Pandu Arya Putra', 'Laki-Laki', '0882006672260', 'Ngramut', ''),
-(8, '2023-03-10', '12', 'hiw', 'Perempuan', '0882006672260', 'a', ''),
-(10, '2024-05-17', '535380F6', 'Aldi', 'Laki-Laki', '08123456789', 'Batam', ''),
-(11, '2024-05-17', '33B3D30', 'Aldi', 'Laki-Laki', '08123456789', 'Batam', ''),
-(12, '2024-05-20', 'C3579FE', 'Aldi', 'Laki-Laki', '08123456789', 'Batam', '');
+INSERT INTO `data_karyawan` (`id`, `created`, `uid`, `nama`, `division`, `mail`, `alamat`, `picture`, `saldo`, `password`) VALUES
+(6, '2023-03-10', 'EABF484', 'Muhamad Pandu Arya Putra', 'Laki-Laki', '0882006672260', 'Ngramut', '', 0, ''),
+(8, '2023-03-10', '12', 'hiw', 'Perempuan', '0882006672260', 'a', '', 0, ''),
+(10, '2024-05-17', '535380F6', 'Aldi', 'Laki-Laki', '08123456789', 'Batam', '', 0, ''),
+(11, '2024-05-17', '33B3D30', 'Aldi', 'Laki-Laki', '08123456789', 'Batam', '', 0, ''),
+(12, '2024-05-20', 'C3579FE', 'Aldi', 'Laki-Laki', '08123456789', 'Batam', '', 0, ''),
+(17, '2024-06-10', 'B3B0E50C', 'Galih', 'Laki-Laki', 'galihtririskyandiko@gmail.com', 'Batu Ampar', '', 40000, '$2y$10$6PoYk6G24xlFz'),
+(18, '2024-06-11', '70772113', 'Fauzan', 'Laki-Laki', 'fauzan@gmail.com', 'Batam Centre', '', 5000, '$2y$10$C9dngofY4Ulu4');
 
 --
 -- Indexes for dumped tables
@@ -326,19 +329,19 @@ ALTER TABLE `data_karyawan`
 -- AUTO_INCREMENT for table `data_absen`
 --
 ALTER TABLE `data_absen`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=160;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=161;
 
 --
 -- AUTO_INCREMENT for table `data_invalid`
 --
 ALTER TABLE `data_invalid`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `data_karyawan`
 --
 ALTER TABLE `data_karyawan`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
