@@ -76,7 +76,7 @@
 
       <div class="header-actions">
 
-        <a href="topup.html" class="btn" aria-labelledby="aria-label-txt">
+        <a href="topup.php" class="btn" aria-labelledby="aria-label-txt">
           <span id="aria-label-txt">Top Up</span>
       </a>      
 
