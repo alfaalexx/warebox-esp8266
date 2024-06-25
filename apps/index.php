@@ -112,7 +112,7 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Murid</div>
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total User</div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $rowcount; ?></div>
                     </div>
                     <div class="col-auto">
@@ -129,7 +129,7 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Absensi Hari ini</div>
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Sewa Hari ini</div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $absensi; ?></div>
                     </div>
                     <div class="col-auto">
@@ -227,7 +227,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; PaudMelati2023</span>
+            <span>Copyright &copy; Warebox2024</span>
           </div>
         </div>
       </footer>
