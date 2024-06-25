@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Paud Melati - Dashboard</title>
+  <title>Warebox - Data Sewa</title>
 
   <!-- Custom fonts for this template-->
   <link href="../src/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -56,23 +56,23 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Data Absensi</h1>
+          <h1 class="h3 mb-2 text-gray-800">Data Sewa Loker</h1>
           
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Data Absensi Harian</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Data Sewa Harian</h6>
             </div>
             <div class="card-body">
 					<div class="col-md-12">
 						<div class="row">
 							<div class="col-md-6">
-								<a href="#" class="btn btn-success pull-right disabled">Tambah Data Absensi</a>
+								<a href="#" class="btn btn-success pull-right disabled">Tambah Data Sewa</a>
 							</div>	
 							<div class="col-md-6">
 								<form action="data_absen-index.php" method="get">
 								<div class="col">
-								  <input type="text" class="form-control" placeholder="Pencarian Data Absensi" name="search">
+								  <input type="text" class="form-control" placeholder="Pencarian Data Sewa" name="search">
 								</div>
 								</form>
 							</div>	
@@ -213,7 +213,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; PaudMelati2023</span>
+            <span>Copyright &copy; Warebox2024</span>
           </div>
         </div>
       </footer>
