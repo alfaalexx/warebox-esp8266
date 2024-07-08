@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 11, 2024 at 09:07 AM
+-- Generation Time: Jul 08, 2024 at 05:54 PM
 -- Server version: 10.4.16-MariaDB
 -- PHP Version: 7.4.12
 
@@ -199,7 +199,34 @@ INSERT INTO `data_absen` (`id`, `tanggal`, `waktu`, `uid`, `status`) VALUES
 (157, '2024-06-04', '12:56:51', '535380F6', 'IN'),
 (158, '2024-06-04', '12:57:01', '535380F6', 'OUT'),
 (159, '2024-06-04', '14:07:39', '535380F6', 'IN'),
-(160, '2024-06-10', '14:59:52', '70772113', 'IN');
+(160, '2024-06-10', '14:59:52', '70772113', 'IN'),
+(161, '2024-06-29', '14:30:36', 'C3579FE', 'OUT'),
+(162, '2024-06-29', '14:30:49', 'C3579FE', 'IN'),
+(163, '2024-06-29', '14:31:40', 'C3579FE', 'OUT'),
+(164, '2024-06-30', '15:28:25', 'C3579FE', 'IN'),
+(165, '2024-06-30', '15:30:02', 'C3579FE', 'OUT'),
+(166, '2024-06-30', '15:33:46', 'C3579FE', 'IN'),
+(167, '2024-06-30', '15:34:40', 'C3579FE', 'OUT'),
+(168, '2024-06-30', '15:35:23', 'C3579FE', 'IN'),
+(169, '2024-06-30', '15:35:36', 'C3579FE', 'OUT'),
+(170, '2024-06-30', '15:35:49', 'C3579FE', 'IN'),
+(171, '2024-06-30', '15:43:30', 'C3579FE', 'OUT'),
+(172, '2024-06-30', '15:50:49', 'C3579FE', 'IN'),
+(173, '2024-06-30', '15:51:00', 'C3579FE', 'OUT'),
+(174, '2024-06-30', '15:56:29', 'C3579FE', 'IN'),
+(175, '2024-06-30', '15:57:48', 'C3579FE', 'OUT'),
+(176, '2024-06-30', '16:05:19', 'C3579FE', 'IN'),
+(177, '2024-06-30', '16:07:19', 'C3579FE', 'OUT'),
+(178, '2024-06-30', '16:08:08', 'C3579FE', 'IN'),
+(179, '2024-06-30', '16:08:21', 'C3579FE', 'OUT'),
+(180, '2024-06-30', '16:08:51', 'C3579FE', 'IN'),
+(181, '2024-06-30', '16:10:36', 'C3579FE', 'OUT'),
+(182, '2024-06-30', '16:29:06', 'C3579FE', 'IN'),
+(183, '2024-06-30', '17:03:36', 'C3579FE', 'OUT'),
+(184, '2024-06-30', '17:05:30', 'C3579FE', 'IN'),
+(185, '2024-06-30', '17:09:44', 'C3579FE', 'OUT'),
+(186, '2024-06-30', '17:10:17', 'C3579FE', 'IN'),
+(187, '2024-06-30', '17:14:32', 'C3579FE', 'OUT');
 
 -- --------------------------------------------------------
 
@@ -265,7 +292,10 @@ INSERT INTO `data_invalid` (`id`, `tanggal`, `waktu`, `uid`, `status`) VALUES
 (60, '2024-06-04', '12:50:57', '831DEA11', 'INVALID'),
 (61, '2024-06-04', '12:56:23', '831DEA11', 'INVALID'),
 (63, '2024-06-10', '14:59:40', 'B3B0E5C', 'INVALID'),
-(64, '2024-06-10', '15:02:43', 'B3B0E5C', 'INVALID');
+(64, '2024-06-10', '15:02:43', 'B3B0E5C', 'INVALID'),
+(65, '2024-06-29', '14:31:12', '831DEA11', 'INVALID'),
+(66, '2024-06-30', '17:09:35', '831DEA11', 'INVALID'),
+(67, '2024-06-30', '17:10:08', '831DEA11', 'INVALID');
 
 -- --------------------------------------------------------
 
@@ -291,13 +321,30 @@ CREATE TABLE `data_karyawan` (
 --
 
 INSERT INTO `data_karyawan` (`id`, `created`, `uid`, `nama`, `division`, `mail`, `alamat`, `picture`, `saldo`, `password`) VALUES
-(6, '2023-03-10', 'EABF484', 'Muhamad Pandu Arya Putra', 'Laki-Laki', '0882006672260', 'Ngramut', '', 0, ''),
 (8, '2023-03-10', '12', 'hiw', 'Perempuan', '0882006672260', 'a', '', 0, ''),
 (10, '2024-05-17', '535380F6', 'Aldi', 'Laki-Laki', '08123456789', 'Batam', '', 0, ''),
 (11, '2024-05-17', '33B3D30', 'Aldi', 'Laki-Laki', '08123456789', 'Batam', '', 0, ''),
 (12, '2024-05-20', 'C3579FE', 'Aldi', 'Laki-Laki', '08123456789', 'Batam', '', 0, ''),
-(17, '2024-06-10', 'B3B0E50C', 'Galih', 'Laki-Laki', 'galihtririskyandiko@gmail.com', 'Batu Ampar', '', 40000, '$2y$10$6PoYk6G24xlFz'),
-(18, '2024-06-11', '70772113', 'Fauzan', 'Laki-Laki', 'fauzan@gmail.com', 'Batam Centre', '', 5000, '$2y$10$C9dngofY4Ulu4');
+(17, '2024-06-10', 'B3B0E50C', 'Galih', 'Laki-Laki', 'galihtririskyandiko@gmail.com', 'Batu Ampar', '', 40000, '$2y$10$6PoYk6G24xlFz');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `statusled`
+--
+
+CREATE TABLE `statusled` (
+  `ID` int(11) NOT NULL,
+  `pin` varchar(255) NOT NULL,
+  `Stat` int(11) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `statusled`
+--
+
+INSERT INTO `statusled` (`ID`, `pin`, `Stat`) VALUES
+(0, '123', 0);
 
 --
 -- Indexes for dumped tables
@@ -322,6 +369,12 @@ ALTER TABLE `data_karyawan`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `statusled`
+--
+ALTER TABLE `statusled`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -329,19 +382,25 @@ ALTER TABLE `data_karyawan`
 -- AUTO_INCREMENT for table `data_absen`
 --
 ALTER TABLE `data_absen`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=161;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=188;
 
 --
 -- AUTO_INCREMENT for table `data_invalid`
 --
 ALTER TABLE `data_invalid`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `data_karyawan`
 --
 ALTER TABLE `data_karyawan`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `statusled`
+--
+ALTER TABLE `statusled`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

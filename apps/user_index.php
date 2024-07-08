@@ -214,7 +214,7 @@ if (isset($_SESSION['nama'])) {
 
       // Navigate to the sandi.php page
       cardLocker.addEventListener('click', function() {
-        window.location.href = 'sandi.php';
+        window.location.href = 'online/input_pin.php';
       });
 
       // Hide the modal

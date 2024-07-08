@@ -177,9 +177,9 @@
                   <div class="card-title-wrapper"></div>
                   <div class="card-price-wrapper">
                     <p class="card-price">
-                      <strong>2.000</strong> / 2 hours
+                      <strong>2.000</strong> / 5 hours
                     </p>
-                    <a href="booknow.html" class="btn">Book Now</a>
+                    <a href="apps/online/check_pin.php" class="btn">Available</a>
                   </div>
                 </div>
               </div>
@@ -192,7 +192,7 @@
                   <div class="card-title-wrapper"></div>
                   <div class="card-price-wrapper">
                     <p class="card-price">
-                      <strong>2.000</strong> / 2 hours
+                      <strong>2.000</strong> / 5 hours
                     </p>
                     <button class="btn">Available</button>
                   </div>
@@ -207,7 +207,7 @@
                   <div class="card-title-wrapper"></div>
                   <div class="card-price-wrapper">
                     <p class="card-price">
-                      <strong>2.000</strong> / 2 hours
+                      <strong>2.000</strong> / 5 hours
                     </p>
                     <button class="btn unavailable" disabled>Unavailable</button>
                   </div>
@@ -222,7 +222,7 @@
                   <div class="card-title-wrapper"></div>
                   <div class="card-price-wrapper">
                     <p class="card-price">
-                      <strong>2.000</strong> / 2 hours
+                      <strong>2.000</strong> / 5 hours
                     </p>
                     <button class="btn">Available</button>
                   </div>
@@ -237,9 +237,9 @@
                   <div class="card-title-wrapper"></div>
                   <div class="card-price-wrapper">
                     <p class="card-price">
-                      <strong>2.000</strong> / 2 hours
+                      <strong>2.000</strong> / 5 hours
                     </p>
-                    <a href="booknow.html" class="btn">Book Now</a>
+                    <a href="booknow.html" class="btn">Available</a>
                   </div>
                 </div>
               </div>
@@ -252,7 +252,7 @@
                   <div class="card-title-wrapper"></div>
                   <div class="card-price-wrapper">
                     <p class="card-price">
-                      <strong>2.000</strong> / 2 hours
+                      <strong>2.000</strong> / 5 hours
                     </p>
                     <button class="btn unavailable">Unavailable</button>
                   </div>
@@ -267,9 +267,9 @@
                   <div class="card-title-wrapper"></div>
                   <div class="card-price-wrapper">
                     <p class="card-price">
-                      <strong>2.000</strong> / 2 hours
+                      <strong>2.000</strong> / 5 hours
                     </p>
-                    <a href="booknow.html" class="btn">Book Now</a>
+                    <a href="booknow.html" class="btn">Available</a>
                   </div>
                 </div>
               </div>
@@ -282,7 +282,7 @@
                   <div class="card-title-wrapper"></div>
                   <div class="card-price-wrapper">
                     <p class="card-price">
-                      <strong>2.000</strong> / 2 hours
+                      <strong>2.000</strong> / 5 hours
                     </p>
                     <button class="btn">Available</button>
                   </div>
@@ -297,9 +297,9 @@
                   <div class="card-title-wrapper"></div>
                   <div class="card-price-wrapper">
                     <p class="card-price">
-                      <strong>2.000</strong> / 2 hours
+                      <strong>2.000</strong> / 5 hours
                     </p>
-                    <a href="booknow.html" class="btn">Book Now</a>
+                    <a href="booknow.html" class="btn">Available</a>
                   </div>
                 </div>
               </div>
@@ -312,7 +312,7 @@
                   <div class="card-title-wrapper"></div>
                   <div class="card-price-wrapper">
                     <p class="card-price">
-                      <strong>2.000</strong> / 2 hours
+                      <strong>2.000</strong> / 5 hours
                     </p>
                     <button class="btn">Available</button>
                   </div>
@@ -327,9 +327,9 @@
                   <div class="card-title-wrapper"></div>
                   <div class="card-price-wrapper">
                     <p class="card-price">
-                      <strong>2.000</strong> / 2 hours
+                      <strong>2.000</strong> / 5 hours
                     </p>
-                    <a href="booknow.html" class="btn">Book Now</a>
+                    <a href="booknow.html" class="btn">Available</a>
                   </div>
                 </div>
               </div>
@@ -342,7 +342,7 @@
                   <div class="card-title-wrapper"></div>
                   <div class="card-price-wrapper">
                     <p class="card-price">
-                      <strong>2.000</strong> / 2 hours
+                      <strong>2.000</strong> / 5 hours
                     </p>
                     <button class="btn">Available</button>
                   </div>
@@ -357,9 +357,9 @@
                   <div class="card-title-wrapper"></div>
                   <div class="card-price-wrapper">
                     <p class="card-price">
-                      <strong>2.000</strong> / 2 hours
+                      <strong>2.000</strong> / 5 hours
                     </p>
-                    <a href="booknow.html" class="btn">Book Now</a>
+                    <a href="booknow.html" class="btn">Available</a>
                   </div>
                 </div>
               </div>
@@ -372,7 +372,7 @@
                   <div class="card-title-wrapper"></div>
                   <div class="card-price-wrapper">
                     <p class="card-price">
-                      <strong>2.000</strong> / 2 hours
+                      <strong>2.000</strong> / 5 hours
                     </p>
                     <button class="btn">Available</button>
                   </div>
@@ -387,9 +387,9 @@
                   <div class="card-title-wrapper"></div>
                   <div class="card-price-wrapper">
                     <p class="card-price">
-                      <strong>2.000</strong> / 2 hours
+                      <strong>2.000</strong> / 5 hours
                     </p>
-                    <a href="booknow.html" class="btn">Book Now</a>
+                    <a href="booknow.html" class="btn">Available</a>
                   </div>
                 </div>
               </div>
@@ -402,7 +402,7 @@
                   <div class="card-title-wrapper"></div>
                   <div class="card-price-wrapper">
                     <p class="card-price">
-                      <strong>2.000</strong> / 2 hours
+                      <strong>2.000</strong> / 5 hours
                     </p>
                     <button class="btn">Available</button>
                   </div>
@@ -417,9 +417,9 @@
                   <div class="card-title-wrapper"></div>
                   <div class="card-price-wrapper">
                     <p class="card-price">
-                      <strong>2.000</strong> / 2 hours
+                      <strong>2.000</strong> / 5 hours
                     </p>
-                    <a href="booknow.html" class="btn">Book Now</a>
+                    <a href="booknow.html" class="btn">Available</a>
                   </div>
                 </div>
               </div>
@@ -432,7 +432,7 @@
                   <div class="card-title-wrapper"></div>
                   <div class="card-price-wrapper">
                     <p class="card-price">
-                      <strong>2.000</strong> / 2 hours
+                      <strong>2.000</strong> / 5 hours
                     </p>
                     <button class="btn">Available</button>
                   </div>
@@ -447,9 +447,9 @@
                   <div class="card-title-wrapper"></div>
                   <div class="card-price-wrapper">
                     <p class="card-price">
-                      <strong>2.000</strong> / 2 hours
+                      <strong>2.000</strong> / 5 hours
                     </p>
-                    <a href="booknow.html" class="btn">Book Now</a>
+                    <a href="booknow.html" class="btn">Available</a>
                   </div>
                 </div>
               </div>
@@ -462,7 +462,7 @@
                   <div class="card-title-wrapper"></div>
                   <div class="card-price-wrapper">
                     <p class="card-price">
-                      <strong>2.000</strong> / 2 hours
+                      <strong>2.000</strong> / 5 hours
                     </p>
                     <button class="btn">Available</button>
                   </div>

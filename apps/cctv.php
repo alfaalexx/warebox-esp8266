@@ -117,7 +117,7 @@ if (isset($_SESSION['nama'])) {
                 <div class="card-body">
                   <!-- Embedded YouTube Video -->
                   <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/live_stream?channel=UC5POtXGIixXae3-JfL-UuVg&autoplay=1" allowfullscreen></iframe>
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/live_stream?channel=UC5POtXGIixXae3-JfL-UuVg" allowfullscreen></iframe>
                   </div>
                 </div>
               </div>

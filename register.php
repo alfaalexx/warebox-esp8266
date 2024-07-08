@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt = null;
         echo '<script language="javascript" type="text/javascript"> 
                 alert("Data berhasil ditambahkan atas nama ' . $nama . '");
-                window.location.replace("apps/");
+                window.location.replace("apps/user_index.php");
               </script>';
         exit();
     } else {
